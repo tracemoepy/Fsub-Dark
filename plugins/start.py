@@ -143,9 +143,7 @@ async def start_command(client: Bot, message: Message):
             text=START_MESSAGE.format(
                 first=message.from_user.first_name,
                 last=message.from_user.last_name,
-                username=f"@{message.from_user.username}"
-                if message.from_user.username
-                else None,
+                username=f"@{message.from_user.username}",
                 mention=message.from_user.mention,
                 id=message.from_user.id,
             ),
