@@ -1,0 +1,48 @@
+{
+  "name": "FORCE SUB - BOT",
+  "stack": "container",
+  "env": {
+    "BOT_TOKEN": {
+      "required": true
+    },
+    "CHANNEL_DB": {
+      "required": true
+    },
+    "DATABASE_URL": {
+      "required": true
+    },
+    "ADMINS": {
+      "required": true
+    },
+    "OWNER": {
+      "required": false
+    },
+    "PROTECT_CONTENT": {
+      "required": false
+    },
+    "FORCE_SUB_1": {
+      "required": false
+    },
+    "FORCE_SUB_2": {
+      "required": false
+    },
+    "FORCE_SUB_3": {
+      "required": false
+    },
+    "FORCE_SUB_4": {
+      "required": false
+    },
+    "START_MESSAGE": {
+      "required": false
+    },
+    "FORCE_MESSAGE": {
+      "required": false
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  }
+}
