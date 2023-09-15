@@ -1,0 +1,8 @@
+feedparser
+gitpython
+psycopg2-binary
+pyrogram
+python-dotenv
+Pyromod==1.5
+sqlalchemy==1.3.23
+TgCrypto

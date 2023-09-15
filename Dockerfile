@@ -1,19 +1,32 @@
-FROM python:3.9-slim-buster
+# SET BASE IMAGE OS
+FROM python:3.9-alpine
 
-ENV TZ="Asia/Jakarta"
-ENV GIT_PYTHON_REFRESH=quiet
+# UPDATE AND INSTALL GIT
+RUN apk update
+RUN apk add --no-cache git
 
-RUN apt update
-RUN apt -y install git
+# CLONE REPOSITORY
+RUN git clone \
+    https://github.com/tracemoepy/Fsub-Dark \
+    /home/fsub ; chmod 777 /home/fsub
 
-RUN git clone https://github.com/ilhamsrc/fsub /app
-RUN chmod 777 /app
+# WORKDIR
+WORKDIR /home/fsub
 
+# SET GIT CONFIG
 RUN git config --global user.name "fsub"
 RUN git config --global user.email "fsub@e.mail"
 
-WORKDIR /app
+# IGNORE PIP WARNING 
+ENV PIP_ROOT_USER_ACTION=ignore
 
-RUN pip3 install -r req*txt
+# UPDATE PIP
+RUN pip install -U pip
 
-CMD ["bash", "./start"]
+# INSTALL REQUIREMENTS
+RUN pip install -U \
+                --no-cache-dir \
+                -r requirements.txt
+
+# COMMAND TO RUN
+CMD ["python", "main.py"]
